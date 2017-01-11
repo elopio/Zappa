@@ -1,0 +1,22 @@
+name: zappa
+version: master
+summary: Serverless Python Web Services
+description: |
+  Zappa makes it super easy to deploy all Python WSGI applications on AWS Lambda
+  + API Gateway. Think of it as "serverless" web hosting for your Python web
+  apps. That means infinite scaling, zero downtime, zero maintenance - and at a
+  fraction of the cost of your current deployments!
+
+grade: devel
+confinement: strict
+
+apps:
+  zappa:
+    command: zappa
+    plugs: [home, network]
+
+parts:
+  zappa:
+    source: .
+    plugin: python
+    python-version: python2
